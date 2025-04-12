@@ -29,7 +29,7 @@ def plot_por_transportadora(df):
         "EXPRESSO NEPOMUCENO S/A": "Nepomuceno",
         "BRACELL SP CELULOSE LTDA": "Bracell",
         "              BRACELL SP CELULOSE LTDA": "Bracell",
-        "EXPRESSO OLSEN TRANSPORTES RODOVIÁRIOS DE CARGAS LTDA": "Olsen,
+        "EXPRESSO OLSEN TRANSPORTES RODOVIÁRIOS DE CARGAS LTDA": "Olsen",
         "SERRANALOG TRANSPORTES LTDA": "Serrana"
     }
 
