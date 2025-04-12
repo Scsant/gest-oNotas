@@ -120,6 +120,12 @@ def plot_valor_m3_brl(df):
         "VDA LOGISTICA LTDA": "VDA",
         "EXPRESSO OLSEN TRANSP ROD CARGAS LT": "Olsen",
         "PLACIDOS TRANSP RODOVIARIO LTDA": "Placidos",
+        "EXPRESSO NEPOMUCENO S/A": "Nepomuceno",
+        "BRACELL SP CELULOSE LTDA": "Bracell",
+        "              BRACELL SP CELULOSE LTDA": "Bracell",
+        "EXPRESSO OLSEN TRANSPORTES RODOVIÁRIOS DE CARGAS LTDA": "Olsen",
+        "                                                                BRACELL SP CELULOSE LTDA                                                                   ": "Bracell",
+
         "SERRANALOG TRANSPORTES LTDA": "Serrana"
     }
 
