@@ -26,6 +26,10 @@ def plot_por_transportadora(df):
         "VDA LOGISTICA LTDA": "VDA",
         "EXPRESSO OLSEN TRANSP ROD CARGAS LT": "Olsen",
         "PLACIDOS TRANSP RODOVIARIO LTDA": "Placidos",
+        "EXPRESSO NEPOMUCENO S/A": "Nepomuceno",
+        "BRACELL SP CELULOSE LTDA": "Bracell",
+        "              BRACELL SP CELULOSE LTDA": "Bracell",
+        "EXPRESSO OLSEN TRANSPORTES RODOVIÁRIOS DE CARGAS LTDA": "Olsen,
         "SERRANALOG TRANSPORTES LTDA": "Serrana"
     }
 
