@@ -26,6 +26,14 @@ if uploaded_emissao and uploaded_chegada:
     df_emissao = load_excel(uploaded_emissao)
     df_chegada = load_excel(uploaded_chegada)
 
+    # Normaliza colunas e verifica presença da coluna crítica
+    df_emissao.columns = df_emissao.columns.str.strip().str.upper()
+    st.write("📋 Colunas da planilha de emissão:", df_emissao.columns.tolist())
+
+    if "DATA EMISSÃO NF" not in df_emissao.columns:
+        st.error("❌ Coluna 'DATA EMISSÃO NF' não encontrada na planilha de emissão!")
+        st.stop()
+
     df_emissao["DATA EMISSÃO NF"] = pd.to_datetime(df_emissao["DATA EMISSÃO NF"], errors="coerce")
 
     # Filtro de data
@@ -51,7 +59,11 @@ if uploaded_emissao and uploaded_chegada:
             (df_emissao["OBS"].isna())
         ]
 
-    df_merged = cruzar_emissao_com_chegada(df_emissao, df_chegada)
+    try:
+        df_merged = cruzar_emissao_com_chegada(df_emissao, df_chegada)
+    except ValueError as e:
+        st.error(str(e))
+        st.stop()
 
     st.success("✅ Dados carregados e cruzados com sucesso!")
 
