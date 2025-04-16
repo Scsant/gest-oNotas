@@ -147,3 +147,26 @@ def plot_valor_m3_brl(df):
     return fig
 
 
+
+
+def plot_tempo_transito(df):
+    df_plot = df[df["LOCALIZADA"] & df["TEMPO TRANSITO"].notna()]
+    fig = px.histogram(df_plot, x="TEMPO TRANSITO", nbins=15,
+                       title="⏱️ Distribuição do Tempo de Trânsito (dias)")
+    return fig
+
+def plot_chegadas_por_dia(df):
+    df_plot = df[df["LOCALIZADA"]].copy()
+    df_plot["DATA CHEGADA BALANÇA"] = pd.to_datetime(df_plot["DATA CHEGADA BALANÇA"])
+    df_count = df_plot.groupby("DATA CHEGADA BALANÇA").size().reset_index(name="Quantidade")
+    fig = px.line(df_count, x="DATA CHEGADA BALANÇA", y="Quantidade",
+                  title="📈 Chegadas por Dia", markers=True)
+    return fig
+
+def plot_eficiencia_transportadora(df):
+    df_plot = df[df["LOCALIZADA"] & df["TEMPO TRANSITO"].notna()].copy()
+    df_grouped = df_plot.groupby("TRANSP. ATUAL")["TEMPO TRANSITO"].mean().reset_index()
+    df_grouped = df_grouped.sort_values("TEMPO TRANSITO")
+    fig = px.bar(df_grouped, x="TRANSP. ATUAL", y="TEMPO TRANSITO",
+                 title="🥇 Média de Tempo de Trânsito por Transportadora")
+    return fig
